@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 # width and height of the building
 width, height = [int(i) for i in input().split()]
 turns = int(input())  # maximum number of turns before game over.
