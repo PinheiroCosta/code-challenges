@@ -49,14 +49,17 @@ if __name__ == "__main__":
     not_there = TestCase("9999 9999", "14", "54 77", "9754 2531")
 
     turns = int(a_lot_of_jumps.turns)
+
     p = Popen([f"{solution_dir}{filename}"], stdin=PIPE)
 
+    with open(r"./test_case/a_lot_of_jumps.txt", 'r') as case:
+        p.stdin.write(case.readlines()[0])
+        p.stdin.write(case.readlines()[1])
+        p.stdin.write(case.readlines()[2])
+
     for turn in range(turns):
-        p.stdin.write(open("./test_case/a_lot_of_jumps.txt").read())
+        p.stdin.write(a_lot_of_jumps.bomb_dir)
         a_lot_of_jumps.debug()
         a_lot_of_jumps.turns -= 1
-
-
-
 
 
